@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customers</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Bdate</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.fname %></td>
+        <td><%= customer.lname %></td>
+        <td><%= customer.bdate %></td>
+        <td><%= customer.email %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td>
+          <%=link_to "Delete",customer_path(customer.id), 'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+          <%#= link_to 'Destroy', customer_path(customer), 'data-method' => :delete, data: { link: customer_path(customer), confirm: 'Are you sure?' }, class: 'delete' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_customer_path, class: 'btn btn-info' %>

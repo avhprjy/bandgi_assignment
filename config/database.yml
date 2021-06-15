@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: bandgi_assignment_dev
+  username: postgres
+  password: psql
+
+test:
+  <<: *default
+  database: bandgi_assignment_test
+  username: postgres
+  password: psql
+  

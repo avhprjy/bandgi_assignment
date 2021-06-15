@@ -1,0 +1,51 @@
+<div class="col-sm-8">
+<%= form_with(model: customer, local: true) do |form| %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+        <% customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= form.label :fname, class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-6">
+      <%= form.text_field :fname, class: 'form-control form-control-sm' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :lname, class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-6">
+      <%= form.text_field :lname, class: 'form-control form-control-sm' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :bdate, class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-6">
+    <%= form.date_select :bdate, class: 'form-control form-control-sm' %>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :email, class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-6">
+    <%= form.text_field :email, class: 'form-control form-control-sm' %>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :encrypted_password, class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-6">
+    <%= form.password_field :encrypted_password, class: 'form-control form-control-sm'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: "btn btn-success" %>
+  </div>
+<% end %>
+</div>
